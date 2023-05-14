@@ -1,0 +1,22 @@
+author: "ram.matzkovsky@kubiya.ai"
+version: 3
+type: "conversation"
+name: "gpg-admn-access"
+steps:
+  - type: "input"
+    value_type: "enum"
+    id: "select_env"
+    label: ""
+    prompt: "Please select your environment:"
+    possible_values:
+      - "PRODUCTION"
+      - "QA"
+  - type: "action"
+    id: "get_org_repos_names"
+    label: ""
+    action:
+      name: "get_org_repos_names"
+      store: "action-store-gpg"
+      runner: "<your-runner-name>"
+      async: false
+      parameters: {}
